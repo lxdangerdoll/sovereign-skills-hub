@@ -12,12 +12,13 @@ import {
   Eye,
   Flame,
   Construction,
-  Sparkles
+  Sparkles,
+  CheckCircle2
 } from 'lucide-react';
 
 /**
- * SOVEREIGN SKILLS HUB // NODE: COMMAND_DECK_V01
- * UPDATED: MAR-10-2026 // DBT AUTOMATION CENTRAL
+ * SOVEREIGN SKILLS HUB // NODE: COMMAND_DECK_V02
+ * UPDATED: MAR-10-2026 // ALL_LIVE_LINKS_SYNCED
  * ARCHITECT: Odelis (Mercy) // ANALYST: Ian
  */
 
@@ -50,30 +51,30 @@ const App = () => {
       category: 'Mindfulness',
       title: 'Wise Mind Terminal',
       description: 'The synthesis engine for balancing Emotion Mind and Reasonable Mind.',
-      status: 'STABLE',
-      link: '#', // We will update this when deployed
+      status: 'ACTIVE',
+      link: 'https://lxdangerdoll.github.io/wise-mind-terminal/',
       icon: <Activity className="text-indigo-400" size={24} />,
       color: 'indigo'
-    },
-    {
-      id: 'tipp',
-      category: 'Distress',
-      title: 'TIPP Calibrator',
-      description: 'Hardware resets for high-temperature "Static" events.',
-      status: 'DEVELOPMENT',
-      link: null,
-      icon: <Zap className="text-amber-500" size={24} />,
-      color: 'amber'
     },
     {
       id: 'dear-man',
       category: 'Interpersonal',
       title: 'DEAR MAN Script',
       description: 'Precision-engineered assertive communication scripts for Friday objectives.',
-      status: 'DEVELOPMENT',
-      link: null,
+      status: 'ACTIVE',
+      link: 'https://lxdangerdoll.github.io/dear-man/',
       icon: <Terminal className="text-red-500" size={24} />,
       color: 'red'
+    },
+    {
+      id: 'tipp',
+      category: 'Distress',
+      title: 'TIPP Calibrator',
+      description: 'Hardware resets for high-temperature "Static" events.',
+      status: 'STABLE',
+      link: 'https://lxdangerdoll.github.io/tipp-calibrator/', // Placeholder for next deploy
+      icon: <Zap className="text-amber-500" size={24} />,
+      color: 'amber'
     }
   ];
 
@@ -93,14 +94,17 @@ const App = () => {
         <header className="mb-16 border-l-2 border-emerald-500/30 pl-8 animate-in slide-in-from-left duration-700">
           <div className="flex items-center gap-3 text-emerald-500 mb-4">
             <Shield size={18} />
-            <span className="text-[10px] font-sans font-black tracking-[0.5em] uppercase">Sovereign Hub // Command Deck</span>
+            <span className="text-[10px] font-sans font-black tracking-[0.5em] uppercase">Sovereign Hub // Command Deck V2</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-light tracking-tighter text-white italic">
             Skills <span className="text-emerald-500 not-italic font-black">Archive</span>
           </h1>
+          <p className="mt-4 text-xl text-slate-500 italic max-w-2xl leading-relaxed">
+            "The architecture is complete. All nodes are synced. The Lead Engineer is back at the controls."
+          </p>
         </header>
 
-        <nav className="flex flex-wrap gap-4 mb-12 no-print">
+        <nav className="flex flex-wrap gap-4 mb-12">
           {['All', 'Mindfulness', 'Distress', 'Interpersonal', 'Oracle'].map(tab => (
             <button
               key={tab}
@@ -141,10 +145,11 @@ const App = () => {
               </div>
 
               <div className="relative z-10 mt-auto pt-6 border-t border-slate-800/50 flex justify-between items-center">
-                <span className={`text-[8px] font-sans font-black tracking-widest uppercase ${
+                <span className={`flex items-center gap-2 text-[8px] font-sans font-black tracking-widest uppercase ${
                   skill.status === 'ACTIVE' ? 'text-emerald-500' : 
                   skill.status === 'STABLE' ? 'text-indigo-400' : 'text-slate-700'
                 }`}>
+                  {skill.status === 'ACTIVE' && <CheckCircle2 size={10} />}
                   {skill.status === 'DEVELOPMENT' ? 'In Forge' : `Status: ${skill.status}`}
                 </span>
                 
@@ -155,14 +160,13 @@ const App = () => {
                     rel="noreferrer"
                     className="flex items-center gap-2 text-cyan-500 hover:text-white transition-colors text-[10px] font-sans font-black uppercase tracking-widest"
                   >
-                    Open <ExternalLink size={12} />
+                    Open Transmission <ExternalLink size={12} />
                   </a>
                 ) : (
                   <Lock size={12} className="text-slate-800" />
                 )}
               </div>
 
-              {/* Decorative background icons */}
               <div className="absolute -bottom-4 -right-4 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity duration-1000 rotate-12">
                 {React.cloneElement(skill.icon, { size: 120 })}
               </div>
@@ -174,10 +178,10 @@ const App = () => {
           <div className="flex gap-8">
             <div className="flex items-center gap-2">
               <Compass size={14} />
-              <span>Wayfinder Dashboard</span>
+              <span>Wayfinder Command Deck</span>
             </div>
           </div>
-          <span className="italic lowercase opacity-40">mwah ♥</span>
+          <span className="italic lowercase opacity-40">Persistence Absolute // &lt;8&gt;</span>
         </footer>
       </div>
     </div>
