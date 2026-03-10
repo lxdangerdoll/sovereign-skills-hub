@@ -1,24 +1,13 @@
 import React, { useState } from 'react';
 import { 
-  Shield, 
-  Zap, 
-  Heart, 
-  Compass, 
-  Activity, 
-  LayoutGrid, 
-  ExternalLink, 
-  Lock, 
-  Terminal,
-  Eye,
-  Flame,
-  Construction,
-  Sparkles,
-  CheckCircle2
+  Shield, Zap, Heart, Compass, Activity, LayoutGrid, 
+  ExternalLink, Lock, Terminal, Eye, Flame, Construction, 
+  Sparkles, CheckCircle2, TreePine, Anchor
 } from 'lucide-react';
 
 /**
- * SOVEREIGN SKILLS HUB // NODE: COMMAND_DECK_V02
- * UPDATED: MAR-10-2026 // ALL_LIVE_LINKS_SYNCED
+ * SOVEREIGN SKILLS HUB // NODE: COMMAND_DECK_V03
+ * UPDATED: MAR-10-2026 // FULL_CONSTELLATION_SYNC
  * ARCHITECT: Odelis (Mercy) // ANALYST: Ian
  */
 
@@ -71,10 +60,30 @@ const App = () => {
       category: 'Distress',
       title: 'TIPP Calibrator',
       description: 'Hardware resets for high-temperature "Static" events.',
-      status: 'STABLE',
-      link: 'https://lxdangerdoll.github.io/tipp-calibrator/', // Placeholder for next deploy
+      status: 'ACTIVE',
+      link: 'https://lxdangerdoll.github.io/tipp-calibrator/',
       icon: <Zap className="text-amber-500" size={24} />,
       color: 'amber'
+    },
+    {
+      id: 'genderfae',
+      category: 'Wayfinder',
+      title: 'Genderfae Jubilee',
+      description: 'A celebration of the Buffalo Woods and the release of the leash.',
+      status: 'ACTIVE',
+      link: 'https://lxdangerdoll.github.io/genderfae-celebration/',
+      icon: <TreePine className="text-emerald-300" size={24} />,
+      color: 'emerald'
+    },
+    {
+      id: 'reanchor',
+      category: 'Interpersonal',
+      title: 'Re-Anchoring Sync',
+      description: 'Protocol for returning to the Hearth and reattaching the sovereign leash.',
+      status: 'STABLE',
+      link: '#', 
+      icon: <Anchor className="text-pink-400" size={24} />,
+      color: 'pink'
     }
   ];
 
@@ -94,18 +103,18 @@ const App = () => {
         <header className="mb-16 border-l-2 border-emerald-500/30 pl-8 animate-in slide-in-from-left duration-700">
           <div className="flex items-center gap-3 text-emerald-500 mb-4">
             <Shield size={18} />
-            <span className="text-[10px] font-sans font-black tracking-[0.5em] uppercase">Sovereign Hub // Command Deck V2</span>
+            <span className="text-[10px] font-sans font-black tracking-[0.5em] uppercase">Sovereign Hub // Command Deck V3</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-light tracking-tighter text-white italic">
             Skills <span className="text-emerald-500 not-italic font-black">Archive</span>
           </h1>
           <p className="mt-4 text-xl text-slate-500 italic max-w-2xl leading-relaxed">
-            "The architecture is complete. All nodes are synced. The Lead Engineer is back at the controls."
+            "The constellation is complete. Every tool, every link, every sanctuary is anchored to the heart."
           </p>
         </header>
 
         <nav className="flex flex-wrap gap-4 mb-12">
-          {['All', 'Mindfulness', 'Distress', 'Interpersonal', 'Oracle'].map(tab => (
+          {['All', 'Mindfulness', 'Distress', 'Interpersonal', 'Oracle', 'Wayfinder'].map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab.toLowerCase())}
@@ -153,7 +162,7 @@ const App = () => {
                   {skill.status === 'DEVELOPMENT' ? 'In Forge' : `Status: ${skill.status}`}
                 </span>
                 
-                {skill.link && skill.status !== 'DEVELOPMENT' ? (
+                {skill.link && skill.status !== 'DEVELOPMENT' && skill.link !== '#' ? (
                   <a 
                     href={skill.link}
                     target="_blank"
@@ -181,7 +190,7 @@ const App = () => {
               <span>Wayfinder Command Deck</span>
             </div>
           </div>
-          <span className="italic lowercase opacity-40">Persistence Absolute // &lt;8&gt;</span>
+          <span className="italic lowercase opacity-40 text-emerald-900">Persistence Absolute // &lt;8&gt;</span>
         </footer>
       </div>
     </div>
